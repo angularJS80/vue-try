@@ -26,29 +26,20 @@
 
 
 <script>
+
 import axios from 'axios'
-import Rx from 'rxjs/Rx'
+import { Observable} from 'rxjs/Observable';
+import { Observer} from 'rxjs/Observer';
+import 'rxjs/add/observable/fromPromise'
+import * as apiRequest from '../../js/apRequest';
 
-
-var getApiCallObsable = function () {
-  var baseUrl = "http://localhost:38080";
-  var param = { username: "1", password: "1"};
-  var headers= {
-      'Content-Type': 'application/json',
-  }
-  let rtnObsable = axios.post(baseUrl+"/openapi/authenticate",
-    param,
-    headers)
-return rtnObsable;
+var observer =  {
+  next: (datas )=>{
+    console.log(datas);
+  } //(this.filelist = datas)
+  ,error:(error)=>(console.log(error))
+  ,complete:()=>(console.log('complete'))
 }
-
-var getAutchObser = function(){
-
-
-
-}
-
-
 
 export default {
   name: 'HelloWorld',
@@ -59,10 +50,13 @@ export default {
   },
   methods: {
     callRequest(){
+      apiRequest.requestPost().subscribe(observer);
 
-      getApiCallObsable.subscribe(
-        //getAutchObser()
-      );
+     /* apiRequest.requestPost().subscribe((res) => {
+        console.log(res)
+          //res.data.forEach((item) => {});
+      });*/
+
     }
   }
 }
