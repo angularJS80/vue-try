@@ -34,8 +34,12 @@ import 'rxjs/add/observable/fromPromise'
 import * as apiRequest from '../../js/apRequest';
 
 var observer =  {
-  next: (datas )=>{
-    console.log(datas);
+  next: (response )=>{
+    var user = response.data;
+    if (user && user.token) {
+      localStorage.setItem('currentUser', JSON.stringify(user));
+    }
+    console.log(localStorage);
   } //(this.filelist = datas)
   ,error:(error)=>(console.log(error))
   ,complete:()=>(console.log('complete'))
@@ -50,7 +54,8 @@ export default {
   },
   methods: {
     callRequest(){
-      apiRequest.requestPost().subscribe(observer);
+      var param = { username: "1", password: "1"};
+      apiRequest.requestPost("/openapi/authenticate",param).subscribe(observer);
 
      /* apiRequest.requestPost().subscribe((res) => {
         console.log(res)

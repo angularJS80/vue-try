@@ -64,6 +64,8 @@
               <p>This sounded a very good reason, and Alice was quite pleased to know it. 'I never thought of that before!' she said.</p>
             </div>
           </div>
+
+
           <!--/col-6-->
 
         </div>

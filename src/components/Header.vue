@@ -35,7 +35,7 @@
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand" href="index.html">Numero</a></div>
+            <a class="navbar-brand" href="index.html">LET'S Programming</a></div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -53,32 +53,28 @@
             <!--/search-cart-block -->
 
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="index.html" class="page-scroll active-on">Our Home</a></li>
-              <li  ><a href="blog-post.html" class="page-scroll">Single</a>
+              <li ><a href="index.html" class="page-scroll active-on"></a></li>
+
+              <li v-for="topMenu in vmData.topMenuList"><a href="blog-post.html" class="page-scroll">{{topMenu.menuNm}}</a>
                 <ul class="sub-menu">
-                  <li><a href="#">Sub Menu 1</a></li>
-                  <li><a href="#">Sub Menu 2</a></li>
-                  <li><a href="#">Sub Menu 3</a></li>
-                  <li ><a href="#">Sub Menu 4 </a>
+                  <li v-for="subMenu in topMenu.subMenuList"><a href="#">{{subMenu.menuNm}}</a>
                     <ul>
-                      <li ><a href="#">Deep Menu 1 </a>
+                      <li v-for="deepMenu in subMenu.deepMenuList"><a href="#">{{deepMenu.menuNm}} </a>
+<!--
                         <ul class="sub-menu">
                           <li><a href="#">Sub Deep 1</a></li>
                           <li><a href="#">Sub Deep 2</a></li>
                           <li><a href="#">Sub Deep 3</a></li>
                           <li><a href="#">Sub Deep 4</a></li>
                         </ul>
+-->
                       </li>
-                      <li><a href="#">Deep Menu 2</a></li>
                     </ul>
                   </li>
-                  <li><a href="#">Sub Menu 5</a></li>
                 </ul>
               </li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="page.html">Page</a></li>
-              <li><a href="portfolio.html">Portfolio</a></li>
-              <li><a href="elements.html">Elements</a></li>
+
+
               <li><a hef="#" v-on:click="contractModalShow()">Contact</a></li>
             </ul>
           </div>
@@ -95,14 +91,36 @@
 
 <script>
   import SignIn from '@/components/SignIn'
+  var vmData={};
+  vmData.topMenuList = [];
+  var topMenuList =[];
+  var subMenuList;
+  var deepMenuList;
+  topMenuList.push({"menuNm":"Our Home","path":""})
 
-  var sampleData=[];
+  subMenuList=[];
+  deepMenuList = []
+  deepMenuList.push({"menuNm":"deep1","path":""})
+  deepMenuList.push({"menuNm":"deep1","path":""})
+
+  subMenuList.push({"menuNm":"sub1","path":"","deepMenuList":deepMenuList})
+  subMenuList.push({"menuNm":"sub2","path":""})
+
+  subMenuList.push({"menuNm":"Single","path":""})
+  topMenuList.push({"menuNm":"Single","path":"","subMenuList":subMenuList});
+
+  topMenuList.push({"menuNm":"Blog","path":""})
+  topMenuList.push({"menuNm":"Page","path":""})
+  topMenuList.push({"menuNm":"Portfolio","path":""})
+  topMenuList.push({"menuNm":"Elements","path":""})
+
+  vmData.topMenuList = topMenuList;
 
   export default {
     name: 'Header',
     data () {
       return {
-        sampleData
+        vmData
       }
     },methods: {
       contractModalShow () {
