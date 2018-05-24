@@ -10,8 +10,9 @@
             <h2>Our case of Studies</h2>
             <p>Find our latest projects we have worked on and get started.</p>
           </div>
+
           <!--/section-title-->
-          <div class="clearfix"></div>
+          <div class="clearfix"><a v-on:click="doPostFileList"><i class="fa fa-refresh"></i></a></div>
           <div class="works">
             <ul class="grid wow zoomIn">
 
@@ -41,11 +42,14 @@
 
 <script>
 import * as apiRequest from '../../js/apRequest';
+import EventBus from '../../js/event-bus';
 var vmData = {};
 vmData.fileList = [];
-var postFileList = function(){
-    var param = {};
-    apiRequest.requestPost("/api/fileList",param).subscribe(observer);
+var obsable = apiRequest.requestPost("/api/fileList",{});
+
+var postFileList = function(param){
+    obsable = apiRequest.requestPost("/api/fileList",param);
+    obsable.subscribe(observer);
 }
 
 var observer =  {
@@ -58,6 +62,7 @@ var observer =  {
 }
 
 
+
   export default {
     name: 'OurWorkBlock',
     data () {
@@ -65,10 +70,20 @@ var observer =  {
         vmData
       }
     },
-    mounted(){
+    /*created() {
+
+    },*/
+    beforeDestroy() {
+      EventBus.$off('login-is-true', this.postFileList);
+    },
+   mounted(){
+        console.log("OurWorkBlock Mounted");
+     EventBus.$on('login-is-true',function(valueOfEvent){
+       console.log(valueOfEvent);
+     })
       postFileList();
     },
-    method:{
+    methods:{
      doPostFileList() {
         postFileList();
       }

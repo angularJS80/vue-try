@@ -28,16 +28,20 @@
 <script>
 
 import axios from 'axios'
-import { Observable} from 'rxjs/Observable';
-import { Observer} from 'rxjs/Observer';
-import 'rxjs/add/observable/fromPromise'
 import * as apiRequest from '../../js/apRequest';
+import EventBus from '../../js/event-bus';
+
 
 var observer =  {
   next: (response )=>{
     var user = response.data;
     if (user && user.token) {
       localStorage.setItem('currentUser', JSON.stringify(user));
+// In order to emit an Event
+      EventBus.$emit('login-is-true','Yea! Logined!');
+      EventBus.$emit('close-signin','Close SignIn Component!');
+
+// In order to consume an event and listen for it
     }
     console.log(localStorage);
   } //(this.filelist = datas)

@@ -13,8 +13,6 @@ var requestPost = function (suburl,param) {
     headers.Authorization = token;
   }
 
-
-console.log(headers);
   return Observable.fromPromise(axios.post(baseUrl+suburl,
     param,
     {headers:headers}));

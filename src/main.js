@@ -9,7 +9,6 @@ import VModal from 'vue-js-modal'
 import $ from 'jquery'
 import jQuery from 'jquery'
 
-
 Vue.config.productionTip = false
 Vue.use(Vue2Filters)
 Vue.use(VModal, { dynamic: true })

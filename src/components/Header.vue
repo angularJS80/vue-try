@@ -91,38 +91,55 @@
 
 <script>
   import SignIn from '@/components/SignIn'
+  import EventBus from '../../js/event-bus';
+  var getMenuList = function(){
+    var topMenuList =[];
+    var subMenuList;
+    var deepMenuList;
+    topMenuList.push({"menuNm":"Our Home","path":""})
+    subMenuList=[];
+    deepMenuList = []
+    deepMenuList.push({"menuNm":"deep1","path":""})
+    deepMenuList.push({"menuNm":"deep1","path":""})
+
+    subMenuList.push({"menuNm":"sub1","path":"","deepMenuList":deepMenuList})
+    subMenuList.push({"menuNm":"sub2","path":""})
+
+    subMenuList.push({"menuNm":"Single","path":""})
+    topMenuList.push({"menuNm":"Single","path":"","subMenuList":subMenuList});
+
+    topMenuList.push({"menuNm":"Blog","path":""})
+    topMenuList.push({"menuNm":"Page","path":""})
+    topMenuList.push({"menuNm":"Portfolio","path":""})
+    topMenuList.push({"menuNm":"Elements","path":""})
+    return topMenuList
+  }
+
+
   var vmData={};
   vmData.topMenuList = [];
-  var topMenuList =[];
-  var subMenuList;
-  var deepMenuList;
-  topMenuList.push({"menuNm":"Our Home","path":""})
-
-  subMenuList=[];
-  deepMenuList = []
-  deepMenuList.push({"menuNm":"deep1","path":""})
-  deepMenuList.push({"menuNm":"deep1","path":""})
-
-  subMenuList.push({"menuNm":"sub1","path":"","deepMenuList":deepMenuList})
-  subMenuList.push({"menuNm":"sub2","path":""})
-
-  subMenuList.push({"menuNm":"Single","path":""})
-  topMenuList.push({"menuNm":"Single","path":"","subMenuList":subMenuList});
-
-  topMenuList.push({"menuNm":"Blog","path":""})
-  topMenuList.push({"menuNm":"Page","path":""})
-  topMenuList.push({"menuNm":"Portfolio","path":""})
-  topMenuList.push({"menuNm":"Elements","path":""})
-
-  vmData.topMenuList = topMenuList;
-
+  vmData.topMenuList = getMenuList();
   export default {
     name: 'Header',
     data () {
       return {
         vmData
       }
+
     },methods: {
+      vmMenuList(){
+          getMenuList()
+      },
+      mounted(){
+        console.log("Header Mounted");
+        EventBus.$on('close-signin',function(valueOfEvent){
+          console.log(valueOfEvent);
+          this.hide();
+        });
+      },
+      beforeDestroy() {
+        EventBus.$off('close-signin', this.postFileList);
+      },
       contractModalShow () {
         this.$modal.show(SignIn
           ,{}
@@ -130,15 +147,14 @@
             resizable:true,
             draggable:true,
             adaptive:true
-
           }
-
-
         );
       },
       hide () {
-        this.$modal.hide('hello-world');
+        this.$modal.hide(SignIn);
       }
     }
   }
+
+
 </script>
