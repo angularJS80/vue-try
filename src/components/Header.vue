@@ -114,7 +114,7 @@
     topMenuList.push({"menuNm":"Elements","path":""})
     return topMenuList
   }
-
+  var modalShow;
 
   var vmData={};
   vmData.topMenuList = [];
@@ -130,18 +130,11 @@
       vmMenuList(){
           getMenuList()
       },
-      mounted(){
-        console.log("Header Mounted");
-        EventBus.$on('close-signin',function(valueOfEvent){
-          console.log(valueOfEvent);
-          this.hide();
-        });
-      },
-      beforeDestroy() {
-        EventBus.$off('close-signin', this.postFileList);
-      },
+
       contractModalShow () {
-        this.$modal.show(SignIn
+
+        modalShow = this.$modal;
+        modalShow.show(SignIn
           ,{}
           ,{
             resizable:true,
@@ -149,10 +142,16 @@
             adaptive:true
           }
         );
-      },
-      hide () {
-        this.$modal.hide(SignIn);
       }
+    }
+    ,mounted(){
+
+      EventBus.$on('close-signin',function(valueOfEvent){
+        $('#\\#modals-container').empty();
+      });
+    },
+    beforeDestroy() {
+      EventBus.$off('close-signin', this.postFileList);
     }
   }
 

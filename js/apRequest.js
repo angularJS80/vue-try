@@ -8,9 +8,10 @@ var requestPost = function (suburl,param) {
   var headers= {
     'Content-Type': 'application/json'
   }
-  var token = JSON.parse(localStorage.getItem('currentUser')).token;
-  if(token){
-    headers.Authorization = token;
+  console.log(localStorage);
+  
+  if(JSON.parse(localStorage.getItem('currentUser'))){
+    headers.Authorization = JSON.parse(localStorage.getItem('currentUser')).token;
   }
 
   return Observable.fromPromise(axios.post(baseUrl+suburl,
