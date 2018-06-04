@@ -91,7 +91,7 @@
 
 <script>
   import SignIn from '@/components/SignIn'
-  import EventBus from '../../js/event-bus';
+  //import EventBus from '../../js/event-bus';
   var getMenuList = function(){
     var topMenuList =[];
     var subMenuList;
@@ -134,6 +134,8 @@
       contractModalShow () {
 
         modalShow = this.$modal;
+
+
         modalShow.show(SignIn
           ,{}
           ,{
@@ -142,13 +144,15 @@
             adaptive:true
           }
         );
+
+
       }
     }
     ,mounted(){
 
-      EventBus.$on('close-signin',function(valueOfEvent){
+      /*EventBus.$on('close-signin',function(valueOfEvent){
         $('#\\#modals-container').empty();
-      });
+      });*/
     },
     beforeDestroy() {
       EventBus.$off('close-signin', this.postFileList);

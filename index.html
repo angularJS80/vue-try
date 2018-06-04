@@ -10,6 +10,15 @@
   <title>Programming - Startup HTML website Template</title>
   <meta name="description" content="">
   <meta name="author" content="">
+  <script src="/node_modules/raven-js/dist/raven.js"></script>
+  <script src="/node_modules/raven-js/dist/plugins/vue.js"></script>
+  <script>
+    Raven
+      .config('https://<key>@sentry.io/<project>')
+      .addPlugin(Raven.Plugins.Vue)
+      .install();
+  </script>
+
 
   <!-- Favicons
       ================================================== -->

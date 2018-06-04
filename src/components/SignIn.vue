@@ -29,7 +29,7 @@
 
   import axios from 'axios'
   import * as apiRequest from '../../js/apRequest';
-  import EventBus from '../../js/event-bus';
+ // import EventBus from '../../js/event-bus';
 
 
   var observer =  {
@@ -38,8 +38,8 @@
   if (user && user.token) {
     localStorage.setItem('currentUser', JSON.stringify(user));
 // In order to emit an Event
-    EventBus.$emit('login-is-true','Yea! Logined!');
-    EventBus.$emit('close-signin','Close SignIn Component!');
+    //EventBus.$emit('login-is-true','Yea! Logined!');
+    //EventBus.$emit('close-signin','Close SignIn Component!');
 
 // In order to consume an event and listen for it
   }

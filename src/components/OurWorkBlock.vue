@@ -42,21 +42,44 @@
 
 <script>
 import * as apiRequest from '../../js/apRequest';
-import EventBus from '../../js/event-bus';
+//import EventBus from '../../js/event-bus';
 var vmData = {};
 vmData.fileList = [];
 var obsable = apiRequest.requestPost("/api/fileList",{});
 
 var postFileList = function(param){
+
+
+    // 서버 데이터 발생 기본
     obsable = apiRequest.requestPost("/api/fileList",param);
+
+
+    // 서버 데이터 발생에 구독자를 추가 하자마자 호출됨
     obsable.subscribe(observer);
+
+
+
+  // 사용자 버튼 클릭  데이터 발생 기본
+  obsable = clickEvent();
+
+
+   // But . obsable 에서 초당 걸러내게 오퍼레이터를 추가 ( 마블도를 보고서 )
+
+
+  // 사용자 버튼 클릭 데이터를 받아 들이는 구독자 이벤트 발생 즉시 호출 됨.
+  obsable.subscribe(observer);
+
+
+
+
 }
 
 var observer =  {
   next: (datas )=>{
     console.log(datas);
-    vmData.fileList =datas.data;
-  } //(this.filelist = datas)
+    vmData.fileList = datas.data;
+
+  }
   ,error:(error)=>(console.log(error))
   ,complete:()=>(console.log('complete'))
 }
@@ -78,9 +101,9 @@ var observer =  {
     },
    mounted(){
         console.log("OurWorkBlock Mounted");
-     EventBus.$on('login-is-true',function(valueOfEvent){
+     /*EventBus.$on('login-is-true',function(valueOfEvent){
        console.log(valueOfEvent);
-     })
+     })*/
       postFileList();
     },
     methods:{

@@ -13,6 +13,10 @@ Vue.config.productionTip = false
 Vue.use(Vue2Filters)
 Vue.use(VModal, { dynamic: true })
 
+Vue.config.errorHandler = function ( err, vm, info ) {
+console.log("errorHandler : "+ info) 
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
