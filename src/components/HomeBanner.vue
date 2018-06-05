@@ -9,7 +9,7 @@
           <h2 class="wow fadeInUp">THINK BIG & GROW RICH.</h2>
           <p class="wow fadeInUp">We build some of the best wordpress themes and also provide support for them. Our team of 5 work smart to get you pixel perfect themes. Lets grow together.</p>
           <a class="btn btn-outline-default wow fadeInLeft" href="#">Contact us</a> <a class="btn btn-info chooser-btn wow fadeInRight" href="#">Start FREE Trial</a> </div>
-      </div>
+      </div>R
     </section>
   </div>
 </template>
