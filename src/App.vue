@@ -1,15 +1,20 @@
 <template>
   <div id="app">
-    <header-templeate></header-templeate>
 
-    <home-banner></home-banner>
-    <about-us></about-us>
+    <!-- <header-templeate></header-templeate>
 
+        <home-banner></home-banner>
 
-    <why-choose></why-choose>
-    <from-blog></from-blog>
-    <our-service></our-service>
-    <our-work-block></our-work-block>
+        <about-us></about-us>
+
+        <why-choose></why-choose>
+
+        <from-blog></from-blog>
+
+        <our-service></our-service>
+
+    <our-work-block></our-work-block>-->
+
     <router-view/>
 
   </div>
@@ -44,14 +49,3 @@ export default {
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

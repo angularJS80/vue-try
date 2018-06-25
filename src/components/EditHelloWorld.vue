@@ -56,10 +56,8 @@ var delayCall= function(){
     .then(function (response) {
       jsData.msg = response.data[0].hellow;
     })*/
-  axios.get("http://localhost:48080/api/hellow/korea",config)
-    .then(function (response) {
-      jsData.msg = response.data;
-    })
+  var hellow = {"hellow_id":"korea","hellow":"안녕하세요."};
+  axios.post("http://localhost:48080/api/hellow/save",hellow);
 
 }
 
@@ -67,7 +65,7 @@ var delayCall= function(){
 
 
 export default {
-  name: 'HelloWorld',
+  name: 'EditHelloWorld',
   data () {
     return {
       vueData: jsData

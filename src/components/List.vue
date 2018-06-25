@@ -6,13 +6,17 @@
     </ul>
 
     <ul>
-      <li v-for="item in filterBy(sampleData,'2','username')">{{item.username}}</li>
+
+      <tr v-for="item in filterBy(sampleData,'2','username')">{{item.username}}</tr>
+
     </ul>
   </div>
 </template>
 
 <script>
 var sampleData=[];
+
+
 sampleData.push({"username":"1","age":"1"});
 sampleData.push({"username":"1","age":"1"});
 sampleData.push({"username":"1","age":"1"});

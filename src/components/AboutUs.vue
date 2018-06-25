@@ -7,7 +7,7 @@
         <div class="row">
           <!--section-title-->
           <div class="section-title text-center">
-            <h2 class="wow fadeInUp">About us</h2>
+            <h2 class="wow fadeInUp">About this</h2>
             <p class="wow zoomIn">Alice wondered a little at this, but she was too much in awe of the Queen to disbelieve it. 'I'll try it when I go home,' she thought to herself.</p>
           </div>
           <!--/section-title-->
@@ -41,6 +41,8 @@
 
 <script>
   var sampleData = {};
+
+
   export default {
     name: 'AboutUs',
     data () {

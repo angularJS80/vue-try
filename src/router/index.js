@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
+import EditHelloWorld from '@/components/EditHelloWorld'
+
 import SignIn from '@/components/SignIn'
 
 import List from '@/components/List'
@@ -12,6 +14,10 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
+    },{
+      path: '/editHellow',
+      name: 'EditHelloWorld',
+      component: EditHelloWorld
     },{
       path: '/SignIn',
       name: 'SignIn',
