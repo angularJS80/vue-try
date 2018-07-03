@@ -3,7 +3,7 @@
   <section id="four" class="wrapper style2 special">
     <div class="inner">
       <header class="major narrow">
-        <h2>Sign In</h2>
+        <h2>Register</h2>
 
       </header>
       <form action="#" method="POST">
@@ -57,11 +57,11 @@
 
   var jsDoLogin = function () {
 
-    apiRequest.requestPost("/openapi/authenticate",jsData).subscribe(observer);
+    apiRequest.requestPost("/openapi/register",jsData).subscribe(observer);
   }
 
   export default {
-    name: 'SignIn',
+    name: 'Register',
     data () {
       return {
         vueData: jsData

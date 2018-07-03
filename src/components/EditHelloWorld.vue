@@ -3,14 +3,6 @@
 {{vueData.msg}}
   </div>
 
-
-
-
-
-
-
-
-
 </template>
 
 

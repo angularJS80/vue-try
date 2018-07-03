@@ -139,7 +139,7 @@
         modalShow.show(SignIn
           ,{}
           ,{
-            resizable:true,
+            //resizable:true,
             draggable:true,
             adaptive:true
           }

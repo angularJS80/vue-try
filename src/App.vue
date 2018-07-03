@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <!-- <header-templeate></header-templeate>
+     <!--<header-templeate></header-templeate>
 
         <home-banner></home-banner>
 
