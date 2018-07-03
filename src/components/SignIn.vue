@@ -3,7 +3,7 @@
   <section id="four" class="wrapper style2 special">
     <div class="inner">
       <header class="major narrow">
-        <h2>Sign In</h2>
+        <h2>Sign In{{vueData.hellow}}</h2>
 
       </header>
       <form action="#" method="POST">
@@ -20,7 +20,7 @@
         </div>
         <ul class="actions">
           <li><input type="button" class="special" value="Submit" v-on:click="vueDoLogin()" /></li>
-          <li><input type="button" class="alt" value="Reset" /></li>
+          <li><input type="button" class="alt" value="Reset" v-on:click="vueDoLoout()"/></li>
         </ul>
       </form>
     </div>
@@ -46,6 +46,8 @@
   var observer =  {
       next: (response )=>{
         var user = response.data;
+        jsData.hellow = user.hellow;
+  alert(jsData.hellow );
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
@@ -56,9 +58,12 @@
   }
 
   var jsDoLogin = function () {
-
     apiRequest.requestPost("/openapi/authenticate",jsData).subscribe(observer);
   }
+  var jsDoLoout = function () {
+   localStorage.removeItem("currentUser")
+  }
+
 
   export default {
     name: 'SignIn',
@@ -68,7 +73,8 @@
       }
     },
     methods: {
-      vueDoLogin(){jsDoLogin()}
+      vueDoLogin(){jsDoLogin()},
+      vueDoLoout(){jsDoLoout()}
     }
   }
 </script>

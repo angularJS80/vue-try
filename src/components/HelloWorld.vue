@@ -1,15 +1,7 @@
 <template>
   <div >
-{{vueData.msg}}
+      <ul v-for="item in vueData.hellows ">{{item.hellow}}</ul>
   </div>
-
-
-
-
-
-
-
-
 
 </template>
 
@@ -19,7 +11,7 @@ import axios from 'axios'
 var jsData ={};
 jsData.msg ="";
 jsData.token ="";
-
+jsData.hellows = [];
 var getToken= function(){
   var headers= {
     'Content-Type': 'application/json'
@@ -58,7 +50,7 @@ var delayCall= function(){
     })*/
   axios.get("http://localhost:48080/api/hellow/korea",config)
     .then(function (response) {
-      jsData.msg = response.data;
+      jsData.hellows = response.data;
     })
 
 }

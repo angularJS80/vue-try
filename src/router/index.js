@@ -4,8 +4,8 @@ import HelloWorld from '@/components/HelloWorld'
 import EditHelloWorld from '@/components/EditHelloWorld'
 
 import SignIn from '@/components/SignIn'
-
 import Register from '@/components/Register'
+
 import List from '@/components/List'
 
 Vue.use(Router)
@@ -26,7 +26,7 @@ export default new Router({
     }
     ,{
       path: '/Register',
-      name: 'Register',
+      name: 'SignIn',
       component: Register
     }
   ]

@@ -16,6 +16,9 @@
             <div class="6u$ 12u$(xsmall)">
               <input v-model="vueData.userPw" name="userPw" placeholder="userPw" type="password" />
             </div>
+            <div class="6u$ 12u$(xsmall)">
+              <input v-model="vueData.contry" name="contry" placeholder="contry" type="text" />
+            </div>
           </div>
         </div>
         <ul class="actions">
@@ -57,11 +60,13 @@
 
   var jsDoLogin = function () {
 
-    apiRequest.requestPost("/openapi/register",jsData).subscribe(observer);
+    apiRequest.requestPost("/openapi/register",jsData)
+
+      .subscribe(observer);
   }
 
   export default {
-    name: 'Register',
+    name: 'SignIn',
     data () {
       return {
         vueData: jsData

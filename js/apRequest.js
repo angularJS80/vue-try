@@ -10,9 +10,14 @@ var requestPost = function (suburl,param) {
   }
   console.log(localStorage);
 
+
+
   if(JSON.parse(localStorage.getItem('currentUser'))){
     headers.Authorization = JSON.parse(localStorage.getItem('currentUser')).token;
   }
+
+
+
   return Observable.fromPromise(
     axios.post(baseUrl+suburl,
     param,
