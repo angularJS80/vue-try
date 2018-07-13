@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-     <!--<header-templeate></header-templeate>
+     <header-templeate></header-templeate>
 
         <home-banner></home-banner>
 
@@ -13,7 +13,7 @@
 
         <our-service></our-service>
 
-    <our-work-block></our-work-block>-->
+    <our-work-block></our-work-block>
 
     <router-view/>
 

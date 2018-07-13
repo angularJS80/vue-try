@@ -6,6 +6,25 @@ import router from './router'
 import Vue2Filters from 'vue2-filters'
 import VModal from 'vue-js-modal'
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import $ from 'jquery'
 import jQuery from 'jquery'
 
@@ -14,7 +33,7 @@ Vue.use(Vue2Filters)
 Vue.use(VModal, { dynamic: true })
 
 Vue.config.errorHandler = function ( err, vm, info ) {
-console.log("errorHandler : "+ info) 
+console.log("errorHandler : "+ info)
 }
 
 /* eslint-disable no-new */
