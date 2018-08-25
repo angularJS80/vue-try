@@ -7,6 +7,10 @@ import SignIn from '@/components/SignIn'
 import Register from '@/components/Register'
 
 import List from '@/components/List'
+import CallJspInVue from '@/components/CallJspInVue.vue'
+import Chat from '@/components/Chat.vue'
+import Talk from '@/components/board/Talk.vue'
+
 
 Vue.use(Router)
 export default new Router({
@@ -29,5 +33,30 @@ export default new Router({
       name: 'SignIn',
       component: Register
     }
+    ,{
+      path: '/List',
+      name: 'List',
+      component: List
+    }
+    ,{
+      path: '/CallJspInVue',
+      name: 'CallJspInVue',
+      component: CallJspInVue
+    }
+    ,{
+      path: '/Chat',
+      name: 'Chat',
+      component: Chat
+    }
+    ,{
+      path: '/Talk',
+      name: 'Talk',
+      component: Talk
+    }
+
+
+
+
+
   ]
 })

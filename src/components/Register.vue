@@ -13,11 +13,14 @@
             <div class="6u 12u$(xsmall)">
               <input v-model="vueData.userId" name="userId" placeholder="userId" type="text" />
             </div>
+
             <div class="6u$ 12u$(xsmall)">
               <input v-model="vueData.userPw" name="userPw" placeholder="userPw" type="password" />
             </div>
+
+
             <div class="6u$ 12u$(xsmall)">
-              <input v-model="vueData.contry" name="contry" placeholder="contry" type="text" />
+              <input v-model="vueData.country" name="country" placeholder="contry" type="text" />
             </div>
           </div>
         </div>

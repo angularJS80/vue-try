@@ -17,7 +17,6 @@
     </section>
   </div>
 </template>
-
 <script>
   var sampleData = {};
 
@@ -30,5 +29,6 @@
     }
   }
 </script>
+
 
 
