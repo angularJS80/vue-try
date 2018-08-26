@@ -47,13 +47,17 @@ console.log("errorHandler : "+ info)
 }
 
 
-/*게시판관련 추가 사항 */
+/*게시판관련 추가 사항 S*/
 import axios from 'axios'
 import cfg from '../static/cfg';
 import moment from 'moment';
 Vue.prototype.$axios = axios;
 Vue.prototype.$cfg = cfg;
 Vue.prototype.$moment = moment;
+
+/*게시판관련 추가 사항 E*/
+
+
 
 /* eslint-disable no-new */
 new Vue({
