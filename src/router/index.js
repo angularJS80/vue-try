@@ -9,6 +9,7 @@ import Register from '@/components/Register'
 import List from '@/components/List'
 import CallJspInVue from '@/components/CallJspInVue.vue'
 import Chat from '@/components/Chat.vue'
+
 import Talk from '@/components/board/Talk.vue'
 
 

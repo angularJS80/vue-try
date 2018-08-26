@@ -11,8 +11,8 @@
 
         <our-service></our-service>
 
-    <our-work-block></our-work-block>-->
-
+    <our-work-block></our-work-block>
+-->
     <router-view/>
 
   </div>
